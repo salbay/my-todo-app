@@ -12,7 +12,7 @@ def add_todo():
 
 
 st.title("Benim To-do Uygulamam")
-st.subheader("Meslinacığıma..")
+st.subheader("Meslinama..")
 st.write("(**Kutucuğu işaretlersen görev silinir.**)")
 st.write("This app is to increase your productivity.")
 
