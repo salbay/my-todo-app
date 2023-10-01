@@ -22,13 +22,6 @@ st.write("This app is to increase your <b>productivity.</b>",unsafe_allow_html=T
 st.text_input(label="",placeholder="Add new todo..",key="chat_input",on_change=add_todo)
 
 
-# for todo in st.session_state:
-#     if st.session_state[todo]:
-#         functions.delete_todos(todo)
-#         #del st.session_state[todo]
-#         st.experimental_rerun()
-
-
 for todo in todos:
     try:
         st.checkbox(todo,key=todo)
@@ -38,10 +31,4 @@ for todo in todos:
         functions.delete_todos(todo)
         #del st.session_state[todo]
         st.experimental_rerun()
-
-#st.session_state
-
-#st.balloons()
-#st.text_input("",placeholder="Your New Todo",key="text_input",on_change=add_todo)
-
 
