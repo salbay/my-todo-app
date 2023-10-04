@@ -4,16 +4,25 @@ import functions
 from PIL import Image
 
 #Kamera uygulaması
-st.set_page_config(layout="wide")
+st.subheader("Siyah-Beyaz Dönüşümü")
+
 with st.expander("Kamerayı Başlat"):
-    photo = st.camera_input("Vay Canım Benim")
+    camera = st.camera_input("Kamera")
 
-if photo:
-    image = Image.open(photo)
-    img_convert = image.convert("L")
-    st.image(img_convert)
+uploaded_image = st.file_uploader("Foto Yükleme")
 
+if uploaded_image:
+    # Open the user uploaded image with PIL
+    img = Image.open(uploaded_image)
+    # Convert the image to grayscale
+    gray_uploaded_img = img.convert('L')
+    # Display the grayscale image on the webpage
+    st.image(gray_uploaded_img)
 
+if camera:
+    photo = Image.open(camera)
+    gray_photo = photo.convert("L")
+    st.image(gray_photo)
 #to-do uygulaması
 todos = functions.get_todos()
 
