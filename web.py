@@ -1,9 +1,21 @@
 import streamlit as st
 import streamlit.errors
 import functions
+from PIL import Image
 
-todos = functions.get_todos()
+#Kamera uygulaması
 st.set_page_config(layout="wide")
+with st.expander("Kamerayı Başlat"):
+    photo = st.camera_input("Vay Canım Benim")
+
+if photo:
+    image = Image.open(photo)
+    img_convert = image.convert("L")
+    st.image(img_convert)
+
+
+#to-do uygulaması
+todos = functions.get_todos()
 
 def add_todo():
     todo = st.session_state["chat_input"]
